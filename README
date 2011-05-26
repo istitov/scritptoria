@@ -2,8 +2,9 @@ This project targets to manipulation with various formats of files with X-Rays d
 Currently support is planned for following formats:
 PANalytical binary scan file, *.rd
 PANalytical ASCII scan file, *.udf
-PANalytical Xnn sna file, *.x00
+PANalytical Xnn scan file, *.x00
 JCAMP format, *.jcp
 Comma separated file, *.csv
 X-Y table, *.xy
 etc.
+At some point conversion FullProf-supported files will be added.
