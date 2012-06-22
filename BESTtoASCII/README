@@ -1,0 +1,3 @@
+Octave/MATLAB and shell scripts for working with BEST (Bruker) format of EPR/FMR data.
+
+dat2gif.sh <-- plots out tons of graphs one for each file.
