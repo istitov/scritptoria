@@ -54,13 +54,13 @@ dT_1 = polyval(k_2,X_1) - polyval(k_1,X_1);
 T_2 = polyval(k_2,X_2);
 dT_2 = polyval(k_3,X_2) - polyval(k_2,X_2);
 #output 
-plot(x,y);
+plot(x,y,'k.');
 hold on;
-plot(x(t(1):t(3)),polyval(k_1,x(t(1):t(3))));
-plot(x(t(2):t(5)),polyval(k_2,x(t(2):t(5))));
-plot(x(t(4):t(6)),polyval(k_3,x(t(4):t(6))));
+plot(x(t(1):t(3)),polyval(k_1,x(t(1):t(3))),'r-');
+plot(x(t(2):t(5)),polyval(k_2,x(t(2):t(5))),'r-');
+plot(x(t(4):t(6)),polyval(k_3,x(t(4):t(6))),'r-');
 
-plot([X_1,X_1],[polyval(k_1,X_1),polyval(k_2,X_1)]);
-plot([X_2,X_2],[polyval(k_2,X_2),polyval(k_3,X_2)]);
+plot([X_1,X_1],[polyval(k_1,X_1),polyval(k_2,X_1)],'g-');
+plot([X_2,X_2],[polyval(k_2,X_2),polyval(k_3,X_2)],'g-');
 
 endfunction
