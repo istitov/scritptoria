@@ -1,0 +1,7 @@
+Collection of functions  to manipulate BEST format (Brucker EPR data) similar to eprload of easyspin package.
+List of functions to implement:
+Fair dta2dat (File conversion using "fair" algorithm looking up in DSC file)
+Fair dta_load (Loading data in dta into [Field,Intensity] array)
+dta2y (conversion all data in dta file to ascii file with one column)
+load_y (the same stuff as above)
+
