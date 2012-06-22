@@ -25,4 +25,3 @@ endfor;
 fclose(fid);
 clear q,i;
 endfunction
-
