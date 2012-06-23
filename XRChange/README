@@ -7,4 +7,5 @@ JCAMP format, *.jcp
 Comma separated file, *.csv			READY
 X-Y table, *.xy					READY
 etc.
+They depend on dev-perl/XML-Mini.
 At some point conversion for FullProf-supported files will be added.
