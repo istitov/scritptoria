@@ -1,4 +1,4 @@
-\documentclass[14pt]{scrartcl}
+\documentclass[12pt]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{pstricks-add}
@@ -125,9 +125,9 @@
 \uput[0](-1,10.5){$AO0+$}
 \uput[u](1,4){$AO1+$}
 
-\uput[dr](8,10.5){$AI0$}
-\uput[dr](8,7.5){$AI1$}
-\uput[dr](8,8.5){$AI2$}
+\uput[dr](8,7.5){$AI0$}
+\uput[dr](8,8.5){$AI1$}
+\uput[dr](8,10.5){$AI2$}
 
 % Wire to complete circuit
 \wire(B)(G)
@@ -141,5 +141,65 @@
 \newground[groundstyle=old](G)
 \end{pspicture}
 \caption{Four-point method.}
+\end{figure}
+\begin{figure}
+\begin{pspicture}[showgrid=true,subgriddiv=1,griddots=10]
+(-1,-1)(12,9.5)
+
+\logicic[nicpins=32,%
+pintl=false,pintllabel=tl,pintlnumber=1,%
+pintc=false,pintclabel=tc,pintcnumber=2,%
+pintr=false,pintrlabel=tr,pintrnumber=3,%
+invertpintl=true,invertpintc=true,invertpintr=true,%
+pinbl=false,pinbllabel=bl,pinblnumber=1,%
+pinbc=false,pinbclabel=bc,pinbcnumber=2,%
+pinbr=false,pinbrlabel=br,pinbrnumber=3,%
+invertpinbl=true,invertpinbc=true,invertpinbr=true,%
+pinqlabel=GND,pinrlabel=AI0,pinslabel=AI4,pintlabel=GND,%
+pinulabel=AI1,pinvlabel=AI5,pinwlabel=GND,pinxlabel=AI2,%
+pinylabel=AI6,pinzlabel=GND,pinaalabel=AI3,pinablabel=AI7,%
+pinaclabel=GND,pinadlabel=AO0,pinaelabel=AO1,pinaflabel=GND,
+pinqnumber=1,pinrnumber=2,pinsnumber=3,pintnumber=4,%
+pinunumber=5,pinvnumber=6,pinwnumber=7,pinxnumber=8,%
+pinynumber=9,pinznumber=10,pinaanumber=11,pinabnumber=12,%
+pinacnumber=13,pinadnumber=14,pinaenumber=15,pinafnumber=16,
+invertpinq=true,invertpinr=true,invertpins=true,invertpint=true,%
+invertpinu=true,invertpinv=true,invertpinw=true,invertpinx=true,%
+invertpiny=true,invertpinz=true,invertpinaa=true,invertpinab=true,%
+invertpinac=true,invertpinad=true,invertpinae=true,invertpinaf=true]
+(0,0){NI USB-6009}
+
+\psframe[linestyle=dashed,dash=3pt 2pt](6.8,0)(8.2,8.5)
+\psframe[linestyle=dashed,dash=3pt 2pt](9.5,0)(11.5,8.5)
+
+\pnode(5,1.0){A}
+\pnode(5,2.5){B}
+\pnode(5,4.0){C}
+\pnode(5,7.0){D}
+\pnode(5,7.5){E}
+
+%\pnode(7,1.0){A}
+%\pnode(7,2.5){B}
+%\pnode(7,4.0){C}
+%\pnode(7,7.0){D}
+%\pnode(7,7.5){E}
+
+\pnode(7.5,1){F}
+\pnode(7.5,3){G}
+\pnode(10,6.5){H}
+\pnode(10,3.0){K}
+\pnode(11,7.0){I}
+\pnode(11,3.0){J}
+\resistor[labeloffset=0,labelangle=90](F)(G){$R_A$}
+\wire(A)(F)
+\wire(E)(G)
+
+\transformer[dipolestyle=rectangle](H)(K)(I)(J){$R_S$}
+\wire(F)(J)
+\wire(D)(I)
+\wire(C)(H)
+\wire(B)(K)
+
+\end{pspicture}
 \end{figure}
 \end{document}
