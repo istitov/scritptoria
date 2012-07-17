@@ -143,9 +143,8 @@
 \caption{Four-point method.}
 \end{figure}
 \begin{figure}
-\begin{pspicture}[showgrid=true,subgriddiv=1,griddots=10]
-(-1,-1)(12,9.5)
-
+\begin{pspicture}(-1,-1)(12,9)
+%[showgrid=true,subgriddiv=1,griddots=10]
 \logicic[nicpins=32,%
 pintl=false,pintllabel=tl,pintlnumber=1,%
 pintc=false,pintclabel=tc,pintcnumber=2,%
@@ -175,30 +174,39 @@ invertpinac=true,invertpinad=true,invertpinae=true,invertpinaf=true]
 \pnode(5,1.0){A}
 \pnode(5,2.5){B}
 \pnode(5,4.0){C}
+\pnode(5.5,4.0){C1}
+\pnode(5.5,5.5){C2}
+
 \pnode(5,7.0){D}
 \pnode(5,7.5){E}
 
-%\pnode(7,1.0){A}
-%\pnode(7,2.5){B}
-%\pnode(7,4.0){C}
-%\pnode(7,7.0){D}
-%\pnode(7,7.5){E}
-
 \pnode(7.5,1){F}
-\pnode(7.5,3){G}
-\pnode(10,6.5){H}
-\pnode(10,3.0){K}
+\pnode(7.5,2){F1}
+\pnode(5.5,7.5){E1}
+
+\pnode(7.5,6){G}
+\pnode(5.5,6){G1}
+
+\pnode(10,5.5){H}
+\pnode(10,2.5){K}
 \pnode(11,7.0){I}
 \pnode(11,3.0){J}
-\resistor[labeloffset=0,labelangle=90](F)(G){$R_A$}
+\pnode(11,1){L}
+\resistor[labeloffset=0,labelangle=90](F1)(G){$R_A$}
 \wire(A)(F)
-\wire(E)(G)
 
 \transformer[dipolestyle=rectangle](H)(K)(I)(J){$R_S$}
-\wire(F)(J)
-\wire(D)(I)
-\wire(C)(H)
-\wire(B)(K)
+\wire(E)(E1)
+\wire(E1)(G1)
+\wire(G1)(G)
+\wire(F)(L)
+\wire(L)(J)
+\wire[intersect,intersectA=E,intersectB=G1](D)(I)
+\wire(C)(C1)
+\wire(C1)(C2)
+\wire[intersect,intersectA=G,intersectB=F1](C2)(H)
+\wire[intersect,intersectA=F,intersectB=F1](B)(K)
+\wire(F)(F1)
 
 \end{pspicture}
 \end{figure}
