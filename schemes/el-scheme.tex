@@ -69,8 +69,7 @@
 \end{figure}
 
 \begin{figure}[ht]
-\begin{pspicture}[showgrid=true,subgriddiv=1,griddots=10]
-(-1.5,-1)(16,12)
+\begin{pspicture}(-1.5,-1)(16,12)
 %[showgrid=true,subgriddiv=1,griddots=10]
 %Node definitions
 \pnode(0,0){A}
@@ -151,8 +150,12 @@
 \wire(N4)(O) %wire AI0
 \wire(Q)(R)
 \wire(N1)(N2) %wire AI1
+\wire[arrows=o-](B)(B)
+\wire[arrows=o-](I)(I)
+\wire[arrows=o-](P)(P)
 % Ground
 \newground[groundstyle=old](G)
+\wire[arrows=o-](G)(G)
 \end{pspicture}
 \caption{Four-point method.}
 \end{figure}
