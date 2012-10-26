@@ -69,7 +69,8 @@
 \end{figure}
 
 \begin{figure}[ht]
-\begin{pspicture}(-1.5,-1)(16,12)
+\begin{pspicture}[showgrid=true,subgriddiv=1,griddots=10]
+(-1.5,-1)(16,12)
 %[showgrid=true,subgriddiv=1,griddots=10]
 %Node definitions
 \pnode(0,0){A}
@@ -83,19 +84,21 @@
 \pnode(0,10.5){H}
 \pnode(1,10.5){I}
 \pnode(3,10.5){J}
-\pnode(6,10.5){K}
+\pnode(5.8,10.5){K}
+\pnode(6.2,10.5){K1}
 \pnode(9,10.5){L}
 \pnode(13,10.5){M}
 
-\pnode(6,7.5){N}
-\pnode(6,8){N1}
+\pnode(5.8,8){N}
+\pnode(6.2,8){N1}
 \pnode(11,8){N2}
 \pnode(11,0){N3}
+\pnode(6.2,7.5){N4}
 
 \pnode(9,7.5){O}
 \pnode(1,3.5){P}
 \pnode(3,3.5){Q}
-\pnode(6,3.5){R}
+\pnode(5.8,3.5){R}
 
 
 % Dipole node connection
@@ -103,9 +106,18 @@
 \tension[labeloffset=-0.7](A)(H){$U_{gen1}$}
 \tension[labeloffset=-0.7](B)(P){$U_{gen2}$}
 
-\resistor[labeloffset=-1,tensionlabeloffset=1.5,tensionlabel=$U_A$](R)(N){$R_A$}
-\resistor[labeloffset=-1,tensionlabeloffset=1.5,tensionlabel=$U_S$](N)(K){$R_S$}
-
+\resistor[labeloffset=-0.6](R)(N){$R_A$}
+\tension[labeloffset=0.4](5,5)(5,6.5){$U_A$}
+% Sample. We need fancy picture for it...
+\resistor[labeloffset=-0.6,tensionlabeloffset=1.5,tensionlabel=$U_S$](6,8.3)(6,10.0){$R_S$}
+\wire[arrows=-o](K)(5.8,10.0)
+\wire[arrows=-o](N)(5.8,8.3)
+\wire[arrows=-o](K1)(6.2,10.0)
+\wire[arrows=-o](N4)(6.2,8.3)
+%
+\wire[arrows=o-o](5.8,8.3)(6.2,8.3)
+\wire[arrows=o-o](5.8,10.0)(6.2,10.0)
+% end of sample block
 \circledipole[labeloffset=0](E)(O){\Large\textbf{V}}
 \uput[ur](9.5,3.5){$U_A$}
 
@@ -118,10 +130,10 @@
 \resistor[labeloffset=-0.6](I)(J){$50 \Omega$}
 \resistor[labeloffset=-0.6](P)(Q){$50 \Omega$}
 
-\psframe[linestyle=dashed,dash=3pt 2pt](5.5,8.2)(6.5,9.7)
-\psframe[linestyle=dashed,dash=3pt 2pt](-1,-1)(3,11.5)
-\psframe[linestyle=dashed,dash=3pt 2pt](3.5,3)(7.5,11.5)
-\psframe[linestyle=dashed,dash=3pt 2pt](8,-1)(15.5,11.5)
+\psframe[linestyle=dashed,dash=3pt 2pt](5.2,7.2)(6.9,10.2) % border around sample
+\psframe[linestyle=dashed,dash=3pt 2pt](-1,-1)(3,11.5) % border around output
+\psframe[linestyle=dashed,dash=3pt 2pt](3.5,3)(7.5,11.5) % border around resistors
+\psframe[linestyle=dashed,dash=3pt 2pt](8,-1)(15.5,11.5) % border around meter part
 
 \uput[0](-1,0){$GND$}
 \uput[0](-1,10.5){$AO0+$}
@@ -134,11 +146,11 @@
 % Wire to complete circuit
 \wire(B)(G)
 \wire(J)(K)
-\wire(K)(L)
+\wire(K1)(L) %wire AI2
 \wire(L)(M)
-\wire(N)(O)
+\wire(N4)(O) %wire AI0
 \wire(Q)(R)
-\wire(N1)(N2)
+\wire(N1)(N2) %wire AI1
 % Ground
 \newground[groundstyle=old](G)
 \end{pspicture}
